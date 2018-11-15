@@ -1,0 +1,39 @@
+{
+  "name": "bs-react-virtualized",
+  "version": "0.0.1",
+  "description": "Bucklescript bindings for react-virtualized",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run clean && bsb -make-world",
+    "watch": "npm run clean && bsb -make-world -w",
+    "clean": "rm -rf lib && bsb -clean-world",
+    "webpack-test": "webpack -w"
+  },
+  "keywords": [
+    "bucklescript",
+    "reason",
+    "reasonml",
+    "list",
+    "grid",
+    "react"
+  ],
+  "license": "MIT",
+  "author": "Ryan Biwer",
+  "_": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ryb73/bs-react-virtualized.git"
+  },
+  "peerDependencies": {
+    "bs-platform": "^4.0.0"
+  },
+  "dependencies": {
+    "react-virtualized": "^9.21.0",
+    "reason-react": "^0.5.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
