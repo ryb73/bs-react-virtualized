@@ -10,7 +10,8 @@
         { "dir": "src" },
         {
             "dir": "test",
-            "type": "dev"
+            "type": "dev",
+            "subdirs": true
         }
     ],
     "refmt": 3,

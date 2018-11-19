@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && bsb -make-world",
     "watch": "npm run clean && bsb -make-world -w",
-    "clean": "rm -rf lib && bsb -clean-world",
+    "clean": "rm -rf test/*/js && rm -rf lib && bsb -clean-world",
     "webpack-test": "webpack -w"
   },
   "keywords": [

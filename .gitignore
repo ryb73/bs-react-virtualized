@@ -69,4 +69,4 @@ lib/
 # persistent-package-linker
 package-links.json
 
-test/js
+test/*/js

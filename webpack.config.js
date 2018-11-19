@@ -5,23 +5,27 @@ function rel(relPath) {
     return path.resolve(__dirname, relPath);
 }
 
-module.exports = {
-    mode: "development",
+function config(subdir, module) {
+    return {
+        mode: "development",
 
-    entry: {
-        index: rel("lib/js/test/index.js"),
-    },
+        entry: {
+            index: rel(`lib/js/test/${subdir}/${module}.js`),
+        },
 
-    output: {
-        path: rel("test/js"),
-        filename: "[name].js",
-    },
+        output: {
+            path: rel(`test/${subdir}/js`),
+            filename: "[name].js",
+        },
 
-    plugins: [
-        new webpack.WatchIgnorePlugin([
-            rel("node_modules/"),
-        ]),
-    ],
+        plugins: [
+            new webpack.WatchIgnorePlugin([
+                rel("node_modules/"),
+            ]),
+        ],
 
-    devtool: "source-map",
-};
+        devtool: "source-map",
+    };
+}
+
+module.exports = [ config("grid", "GridExample"), config("table", "TableExample") ];
