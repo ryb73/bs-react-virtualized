@@ -43,24 +43,28 @@ let _mouseEvent = (callback, json) =>
 let make =
     (~height, ~width, ~headerHeight, ~rowCount, ~rowHeight, ~rowGetter, ~rowClassName=?,
         ~onRowClick=?, ~onRowDoubleClick=?, ~onRowMouseOut=?, ~onRowMouseOver=?,
-        ~onRowRightClick=?, ~className=?, children)
-=>
+        ~onRowRightClick=?, ~className=?, children) =>
+{
+    let props: _jsProps = _jsProps(
+        ~className?,
+        ~headerHeight,
+        ~height,
+        ~onRowClick=?map(onRowClick, _mouseEvent),
+        ~onRowDoubleClick=?map(onRowDoubleClick, _mouseEvent),
+        ~onRowMouseOut=?map(onRowMouseOut, _mouseEvent),
+        ~onRowMouseOver=?map(onRowMouseOver, _mouseEvent),
+        ~onRowRightClick=?map(onRowRightClick, _mouseEvent),
+        ~rowClassName=?map(rowClassName, _makeRowCallback),
+        ~rowCount,
+        ~rowGetter=_makeRowCallback(rowGetter),
+        ~rowHeight,
+        ~width,
+        ()
+    );
+
     ReasonReact.wrapJsForReason(
         ~reactClass=_Table,
-        ~props=_jsProps(
-            ~className?,
-            ~headerHeight,
-            ~height,
-            ~onRowClick=?map(onRowClick, _mouseEvent),
-            ~onRowDoubleClick=?map(onRowDoubleClick, _mouseEvent),
-            ~onRowMouseOut=?map(onRowMouseOut, _mouseEvent),
-            ~onRowMouseOver=?map(onRowMouseOver, _mouseEvent),
-            ~onRowRightClick=?map(onRowRightClick, _mouseEvent),
-            ~rowClassName=?map(rowClassName, _makeRowCallback),
-            ~rowCount,
-            ~rowGetter=_makeRowCallback(rowGetter),
-            ~rowHeight,
-            ~width
-        ),
+        ~props,
         children,
     );
+};

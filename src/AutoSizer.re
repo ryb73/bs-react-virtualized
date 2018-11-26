@@ -8,11 +8,13 @@ type _jsProps = {
 [@decco] type dimensions = { width: int, height: int };
 
 let make = (~className=?, children) => {
+    let props: _jsProps = _jsProps(~className?, ());
+
     switch (Js.Array.length(children)) {
         | 1 =>
             ReasonReact.wrapJsForReason(
                 ~reactClass=_AutoSizer,
-                ~props=_jsProps(~className?),
+                ~props,
                 (json) => json
                     |> dimensions_decode
                     |> ResultEx.getExn
