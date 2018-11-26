@@ -4,14 +4,15 @@ open Belt.Option;
 
 [@bs.deriving abstract]
 type _jsProps = {
+    [@bs.optional] className: string,
     headerHeight: int,
     height: int,
-    onRowClick: Js.nullable(Js.Json.t => unit),
-    onRowDoubleClick: Js.nullable(Js.Json.t => unit),
-    onRowMouseOut: Js.nullable(Js.Json.t => unit),
-    onRowMouseOver: Js.nullable(Js.Json.t => unit),
-    onRowRightClick: Js.nullable(Js.Json.t => unit),
-    rowClassName: Js.nullable(Js.Json.t => string),
+    [@bs.optional] onRowClick: Js.Json.t => unit,
+    [@bs.optional] onRowDoubleClick: Js.Json.t => unit,
+    [@bs.optional] onRowMouseOut: Js.Json.t => unit,
+    [@bs.optional] onRowMouseOver: Js.Json.t => unit,
+    [@bs.optional] onRowRightClick: Js.Json.t => unit,
+    [@bs.optional] rowClassName: Js.Json.t => string,
     rowCount: int,
     rowGetter: Js.Json.t => Js.Dict.t(string),
     rowHeight: int,
@@ -39,24 +40,23 @@ let _mouseEvent = (callback, json) =>
     |> ResultEx.getExn
     |> callback;
 
-let _nul = Js.Nullable.fromOption;
-
 let make =
     (~height, ~width, ~headerHeight, ~rowCount, ~rowHeight, ~rowGetter, ~rowClassName=?,
         ~onRowClick=?, ~onRowDoubleClick=?, ~onRowMouseOut=?, ~onRowMouseOver=?,
-        ~onRowRightClick=?, children)
+        ~onRowRightClick=?, ~className=?, children)
 =>
     ReasonReact.wrapJsForReason(
         ~reactClass=_Table,
         ~props=_jsProps(
+            ~className?,
             ~headerHeight,
             ~height,
-            ~onRowClick=map(onRowClick, _mouseEvent) |> _nul,
-            ~onRowDoubleClick=map(onRowDoubleClick, _mouseEvent) |> _nul,
-            ~onRowMouseOut=map(onRowMouseOut, _mouseEvent) |> _nul,
-            ~onRowMouseOver=map(onRowMouseOver, _mouseEvent) |> _nul,
-            ~onRowRightClick=map(onRowRightClick, _mouseEvent) |> _nul,
-            ~rowClassName=map(rowClassName, _makeRowCallback) |> _nul,
+            ~onRowClick=?map(onRowClick, _mouseEvent),
+            ~onRowDoubleClick=?map(onRowDoubleClick, _mouseEvent),
+            ~onRowMouseOut=?map(onRowMouseOut, _mouseEvent),
+            ~onRowMouseOver=?map(onRowMouseOver, _mouseEvent),
+            ~onRowRightClick=?map(onRowRightClick, _mouseEvent),
+            ~rowClassName=?map(rowClassName, _makeRowCallback),
             ~rowCount,
             ~rowGetter=_makeRowCallback(rowGetter),
             ~rowHeight,

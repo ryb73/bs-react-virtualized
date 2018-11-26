@@ -2,7 +2,7 @@
 
 [@bs.deriving abstract]
 type _jsProps = {
-    className: Js.nullable(string)
+    [@bs.optional] className: string
 };
 
 [@decco] type dimensions = { width: int, height: int };
@@ -12,7 +12,7 @@ let make = (~className=?, children) => {
         | 1 =>
             ReasonReact.wrapJsForReason(
                 ~reactClass=_AutoSizer,
-                ~props=_jsProps(~className=Js.Nullable.fromOption(className)),
+                ~props=_jsProps(~className?),
                 (json) => json
                     |> dimensions_decode
                     |> ResultEx.getExn
