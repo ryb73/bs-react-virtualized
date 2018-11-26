@@ -18,6 +18,13 @@ function config(subdir, module) {
             filename: "[name].js",
         },
 
+        module: {
+            rules: [{
+                test: /\.css$/,
+                use: [ "style-loader", "css-loader" ]
+            }]
+        },
+
         plugins: [
             new webpack.WatchIgnorePlugin([
                 rel("node_modules/"),

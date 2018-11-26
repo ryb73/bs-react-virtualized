@@ -8,7 +8,8 @@
     "build": "npm run clean && bsb -make-world",
     "watch": "npm run clean && bsb -make-world -w",
     "clean": "rm -rf test/*/js && rm -rf lib && bsb -clean-world",
-    "webpack-test": "webpack -w"
+    "webpack-test": "webpack -w",
+    "postinstall": "[ ! -f package-links.json ] || ppl link-file"
   },
   "keywords": [
     "bucklescript",
@@ -33,6 +34,10 @@
     "reason-react": "^0.5.3"
   },
   "devDependencies": {
+    "bs-result-ex": "0.0.1",
+    "css-loader": "^1.0.1",
+    "decco": "0.0.1",
+    "style-loader": "^0.23.1",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2"
   }
