@@ -21,22 +21,13 @@ type jsProps = {
 
 [@decco] type rowIndex = { index: int };
 
-module Event = {
-    [@decco]
-    type t = {
-        event: [@decco.codec Decco.Codecs.magic] ReactEvent.Mouse.t,
-        index: int,
-        rowData: Js.Json.t
-    };
-};
-
 let makeRowCallback = (callback, json) =>
     rowIndex_decode(json)
     |> Belt.Result.getExn
     |> callback;
 
 let mouseEvent = (callback, json) =>
-    Event.t_decode(json)
+    TableEvent.t_decode(json)
     |> Belt.Result.getExn
     |> callback;
 
