@@ -3,7 +3,7 @@ open Belt.Option;
 [@bs.module "react-virtualized"] external _Table: ReasonReact.reactClass = "Table";
 
 [@bs.deriving abstract]
-type _jsProps = {
+type jsProps = {
     [@bs.optional] className: string,
     headerHeight: int,
     height: int,
@@ -30,14 +30,14 @@ module Event = {
     };
 };
 
-let _makeRowCallback = (callback, json) =>
+let makeRowCallback = (callback, json) =>
     rowIndex_decode(json)
-    |> ResultEx.getExn
+    |> Belt.Result.getExn
     |> callback;
 
-let _mouseEvent = (callback, json) =>
+let mouseEvent = (callback, json) =>
     Event.t_decode(json)
-    |> ResultEx.getExn
+    |> Belt.Result.getExn
     |> callback;
 
 let make =
@@ -45,18 +45,18 @@ let make =
         ~onRowClick=?, ~onRowDoubleClick=?, ~onRowMouseOut=?, ~onRowMouseOver=?,
         ~onRowRightClick=?, ~className=?, children) =>
 {
-    let props: _jsProps = _jsProps(
+    let props: jsProps = jsProps(
         ~className?,
         ~headerHeight,
         ~height,
-        ~onRowClick=?map(onRowClick, _mouseEvent),
-        ~onRowDoubleClick=?map(onRowDoubleClick, _mouseEvent),
-        ~onRowMouseOut=?map(onRowMouseOut, _mouseEvent),
-        ~onRowMouseOver=?map(onRowMouseOver, _mouseEvent),
-        ~onRowRightClick=?map(onRowRightClick, _mouseEvent),
-        ~rowClassName=?map(rowClassName, _makeRowCallback),
+        ~onRowClick=?map(onRowClick, mouseEvent),
+        ~onRowDoubleClick=?map(onRowDoubleClick, mouseEvent),
+        ~onRowMouseOut=?map(onRowMouseOut, mouseEvent),
+        ~onRowMouseOver=?map(onRowMouseOver, mouseEvent),
+        ~onRowRightClick=?map(onRowRightClick, mouseEvent),
+        ~rowClassName=?map(rowClassName, makeRowCallback),
         ~rowCount,
-        ~rowGetter=_makeRowCallback(rowGetter),
+        ~rowGetter=makeRowCallback(rowGetter),
         ~rowHeight,
         ~width,
         ()

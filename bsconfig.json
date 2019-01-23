@@ -1,13 +1,14 @@
 {
-    "name" : "bs-react-virtualized",
-    "namespace": true,
+    "name": "@ryb73/bs-react-virtualized",
     "bs-dependencies": [
+        "@ryb73/decco",
         "reason-react",
-        "decco",
-        "bs-result-ex",
     ],
-    "sources" : [
-        { "dir": "src" },
+    "sources": [
+        {
+            "dir": "src",
+            "public": ["ReactVirtualized"],
+        },
         {
             "dir": "test",
             "type": "dev",
@@ -15,7 +16,7 @@
         }
     ],
     "refmt": 3,
-    "reason" : { "react-jsx" : 2 },
+    "reason": { "react-jsx": 2 },
     "ppx-flags": [ "ppx_decco" ],
     "bsc-flags": [ "-w -10", "-bs-super-errors" ]
 }

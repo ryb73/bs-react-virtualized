@@ -1,7 +1,7 @@
 [@bs.module "react-virtualized"] external _Column: ReasonReact.reactClass = "Column";
 
 [@bs.deriving abstract]
-type _jsProps = {
+type jsProps = {
     dataKey: string,
     width: int,
     label: Js.nullable(string),
@@ -12,7 +12,7 @@ type _jsProps = {
 let make = (~label=?, ~flexGrow=?, ~flexShrink=?, ~dataKey, ~width, children) =>
     ReasonReact.wrapJsForReason(
         ~reactClass=_Column,
-        ~props=_jsProps(
+        ~props=jsProps(
             ~label=Js.Nullable.fromOption(label),
             ~flexGrow=Js.Nullable.fromOption(flexGrow),
             ~flexShrink=Js.Nullable.fromOption(flexShrink),

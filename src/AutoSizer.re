@@ -1,14 +1,14 @@
 [@bs.module "react-virtualized"] external _AutoSizer: ReasonReact.reactClass = "AutoSizer";
 
 [@bs.deriving abstract]
-type _jsProps = {
+type jsProps = {
     [@bs.optional] className: string
 };
 
 [@decco] type dimensions = { width: int, height: int };
 
 let make = (~className=?, children) => {
-    let props: _jsProps = _jsProps(~className?, ());
+    let props: jsProps = jsProps(~className?, ());
 
     switch (Js.Array.length(children)) {
         | 1 =>
@@ -17,7 +17,7 @@ let make = (~className=?, children) => {
                 ~props,
                 (json) => json
                     |> dimensions_decode
-                    |> ResultEx.getExn
+                    |> Belt.Result.getExn
                     |> children[0],
             );
         | _ =>
