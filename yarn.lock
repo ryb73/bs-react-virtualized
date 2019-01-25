@@ -9,10 +9,10 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@ryb73/decco@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@ryb73/decco/-/decco-0.0.5.tgz#3b01df85d623f99860950801bf9342f78f19ff6a"
-  integrity sha512-XTS3kNJQLlipb7UFooDpLcUwLBcVYJ8n+ayyrgCyh3NcNnnDQHyozI0ryO6O9Vt9lAIQr72vaadc8+RxANgFYQ==
+"@ryb73/decco@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@ryb73/decco/-/decco-0.0.6.tgz#fd772298afc2593e9e2b6cb5ff011e1b912028bb"
+  integrity sha512-NPgBWIrXz5GdRDgqZDGFVSYxsIrBssY/iZnJGHiPqXdQqKL5q9nbpJHW9G8wApt98BHyxZZTo45vGGiXiUwu7Q==
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
