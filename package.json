@@ -4,7 +4,7 @@
   "description": "Bucklescript bindings for react-virtualized",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Warning: no test specified\"",
     "build": "npm run clean && bsb -make-world",
     "watch": "npm run clean && bsb -make-world -w",
     "clean": "rm -rf test/*/js && rm -rf lib && bsb -clean-world",
