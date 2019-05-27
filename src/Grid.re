@@ -1,17 +1,9 @@
-[@bs.module "react-virtualized"] external _Grid: ReasonReact.reactClass = "Grid";
-
-[@bs.deriving abstract]
-type jsProps = {
-    columnCount: int,
-    columnWidth: int => int,
-    rowCount: int,
-    rowHeight: int,
-
-    height: int,
-    width: int,
-
-    cellRenderer: Js.Json.t => ReasonReact.reactElement
-};
+[@bs.module "react-virtualized"] [@react.component]
+external make:
+    (   ~ref: ReactDOMRe.domRef=?, ~columnCount: int, ~columnWidth: int => int,
+        ~rowCount: int, ~rowHeight: int, ~height: int, ~width: int,
+        ~cellRenderer: Js.Json.t => React.element, unit
+    ) => React.element = "Grid";
 
 [@decco]
 type cellInfo = {
@@ -37,16 +29,12 @@ let cellRendererWrapper = (cellRenderer, json) => {
     });
 };
 
-let make =
-    (~height, ~width, ~columnCount, ~columnWidth, ~rowCount, ~rowHeight,
-        ~cellRenderer, children)
+let makeProps =
+    (~ref=?, ~height, ~width, ~columnCount, ~columnWidth, ~rowCount, ~rowHeight,
+        ~cellRenderer, ())
     =>
-        ReasonReact.wrapJsForReason(
-          ~reactClass=_Grid,
-          ~props=jsProps(
-              ~height, ~width, ~columnCount,
-              ~columnWidth, ~rowCount, ~rowHeight,
-              ~cellRenderer=cellRendererWrapper(cellRenderer)
-          ),
-          children,
+        makeProps(
+            ~ref?, ~height, ~width, ~columnCount, ~columnWidth, ~rowCount, ~rowHeight,
+            ~cellRenderer=cellRendererWrapper(cellRenderer),
+            ()
         );

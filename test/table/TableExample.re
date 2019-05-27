@@ -6,7 +6,7 @@ let rowGetter = ({ Table.index }) => data[index];
 
 ReactDOMRe.renderToElementWithId(
     <AutoSizer>
-        (({ AutoSizer.width, height }) =>
+        (({ width, height }) =>
             <Table height width rowHeight=20 headerHeight=20 rowGetter
                 rowCount=Js.Array.length(data) onRowClick=Js.log2("click")
             >

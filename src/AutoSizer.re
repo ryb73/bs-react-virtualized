@@ -1,4 +1,8 @@
-[@bs.module "react-virtualized"] external _AutoSizer: ReasonReact.reactClass = "AutoSizer";
+[@bs.module "react-virtualized"] [@react.component]
+external make:
+    (   ~ref: ReactDOMRe.domRef=?, ~className: string=?,
+        ~children: Js.Json.t => React.element, unit
+    ) => React.element = "AutoSizer";
 
 [@bs.deriving abstract]
 type jsProps = {
@@ -7,21 +11,12 @@ type jsProps = {
 
 [@decco] type dimensions = { width: int, height: int };
 
-let make = (~className=?, children) => {
-    let props: jsProps = jsProps(~className?, ());
-
-    switch (Js.Array.length(children)) {
-        | 1 =>
-            ReasonReact.wrapJsForReason(
-                ~reactClass=_AutoSizer,
-                ~props,
-                (json) => json
-                    |> dimensions_decode
-                    |> Belt.Result.getExn
-                    |> children[0],
-            );
-        | _ =>
-            Js.Exn.raiseError("Expected a single child; found " ++
-                (children |> Js.Array.length |> string_of_int))
-    };
-};
+let makeProps = (~ref=?, ~className=?, ~children, ()) =>
+    makeProps(
+        ~ref?, ~className?,
+        ~children=(json) =>
+            dimensions_decode(json)
+            |> Belt.Result.getExn
+            |> children,
+        ()
+    );

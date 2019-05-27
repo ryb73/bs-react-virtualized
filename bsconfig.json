@@ -17,7 +17,7 @@
         }
     ],
     "refmt": 3,
-    "reason": { "react-jsx": 2 },
+    "reason": { "react-jsx": 3 },
     "ppx-flags": [ "ppx_decco" ],
     "bsc-flags": [ "-w -10", "-bs-super-errors" ]
 }

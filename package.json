@@ -32,7 +32,7 @@
     "url": "git@github.com:ryb73/bs-react-virtualized.git"
   },
   "peerDependencies": {
-    "bs-platform": "^5.0.0"
+    "bs-platform": "^5.0.4"
   },
   "dependencies": {
     "@ryb73/decco": "0.0.14",
