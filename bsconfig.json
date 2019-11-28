@@ -1,7 +1,7 @@
 {
     "name": "@ryb73/bs-react-virtualized",
     "bs-dependencies": [
-        "@ryb73/decco",
+        "decco",
         "reason-react",
     ],
     "sources": [
@@ -18,6 +18,6 @@
     ],
     "refmt": 3,
     "reason": { "react-jsx": 3 },
-    "ppx-flags": [ "ppx_decco" ],
-    "bsc-flags": [ "-w -10", "-bs-super-errors" ]
+    "ppx-flags": [ "decco/ppx" ],
+    "bsc-flags": [ "-bs-super-errors" ]
 }

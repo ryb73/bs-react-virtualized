@@ -13,8 +13,7 @@
   },
   "files": [
     "/bsconfig.json",
-    "/src",
-    "/lib/js/src"
+    "/src"
   ],
   "keywords": [
     "bucklescript",
@@ -26,23 +25,23 @@
   ],
   "license": "MIT",
   "author": "Ryan Biwer",
-  "_": [],
   "repository": {
     "type": "git",
     "url": "git@github.com:ryb73/bs-react-virtualized.git"
   },
   "peerDependencies": {
-    "bs-platform": "^5.0.4"
+    "bs-platform": "^6.0.1"
   },
   "dependencies": {
-    "@ryb73/decco": "0.1.0",
+    "decco": "^1.0.0",
     "react-virtualized": "^9.21.1",
     "reason-react": "^0.7.0"
   },
   "devDependencies": {
+    "bs-platform": "^6.0.1",
     "css-loader": "^3.2.0",
     "style-loader": "^1.0.0",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
   }
 }
