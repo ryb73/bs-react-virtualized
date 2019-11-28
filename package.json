@@ -1,6 +1,6 @@
 {
   "name": "@ryb73/bs-react-virtualized",
-  "version": "0.1.1",
+  "version": "0.2.0-bs6.0",
   "description": "Bucklescript bindings for react-virtualized",
   "main": "index.js",
   "scripts": {
