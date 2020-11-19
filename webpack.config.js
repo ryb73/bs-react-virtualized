@@ -25,11 +25,9 @@ function config(subdir, module) {
             }]
         },
 
-        plugins: [
-            new webpack.WatchIgnorePlugin([
-                rel("node_modules/"),
-            ]),
-        ],
+        watchOptions: {
+            ignored: [ rel("node_modules/") ],
+        },
 
         devtool: "source-map",
     };

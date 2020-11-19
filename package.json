@@ -8,8 +8,7 @@
     "build": "npm run clean && bsb -make-world",
     "watch": "npm run clean && bsb -make-world -w",
     "clean": "rm -rf test/*/js && rm -rf lib && bsb -clean-world",
-    "webpack-test": "webpack -w",
-    "postinstall": "[ ! -f package-links.json ] || ppl link-file"
+    "webpack-test": "webpack -w"
   },
   "files": [
     "/bsconfig.json",
@@ -30,7 +29,9 @@
     "url": "git@github.com:ryb73/bs-react-virtualized.git"
   },
   "peerDependencies": {
-    "bs-platform": "^6.0.1"
+    "bs-platform": "6 || 7 || 8",
+    "react": "16",
+    "react-dom": "16"
   },
   "dependencies": {
     "decco": "^1.0.0",
@@ -38,10 +39,12 @@
     "reason-react": "^0.7.0"
   },
   "devDependencies": {
-    "bs-platform": "^6.0.1",
-    "css-loader": "^3.2.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "bs-platform": "8",
+    "css-loader": "^5.0.1",
+    "react": "16",
+    "react-dom": "16",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.5.1",
+    "webpack-cli": "^4.2.0"
   }
 }
