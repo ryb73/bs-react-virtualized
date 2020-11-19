@@ -29,14 +29,14 @@
     "url": "git@github.com:ryb73/bs-react-virtualized.git"
   },
   "peerDependencies": {
-    "bs-platform": "6 || 7 || 8",
+    "bs-platform": "7 || 8",
     "react": "16",
     "react-dom": "16"
   },
   "dependencies": {
     "decco": "^1.0.0",
     "react-virtualized": "^9.21.1",
-    "reason-react": "^0.7.0"
+    "reason-react": "^0.9.1"
   },
   "devDependencies": {
     "bs-platform": "8",

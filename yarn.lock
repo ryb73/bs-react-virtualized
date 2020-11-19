@@ -24,7 +24,7 @@ __metadata:
     react: 16
     react-dom: 16
     react-virtualized: ^9.21.1
-    reason-react: ^0.7.0
+    reason-react: ^0.9.1
     style-loader: ^2.0.0
     webpack: ^5.5.1
     webpack-cli: ^4.2.0
@@ -1255,20 +1255,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:>=16.8.1":
-  version: 16.8.6
-  resolution: "react-dom@npm:16.8.6"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-    scheduler: ^0.13.6
-  peerDependencies:
-    react: ^16.0.0
-  checksum: 7be1f054589533467b2e1f5894b4333513657ad9d550b01804deea0a0f59feeefd55d8ab0e01463f481551f070fa503c9b39af44ff6a94d546ede5f04a494c74
-  languageName: node
-  linkType: hard
-
 "react-lifecycles-compat@npm:^3.0.4":
   version: 3.0.4
   resolution: "react-lifecycles-compat@npm:3.0.4"
@@ -1305,25 +1291,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:>=16.8.1":
-  version: 16.8.6
-  resolution: "react@npm:16.8.6"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-    scheduler: ^0.13.6
-  checksum: 0a87dd21592db96467dd83e38cdc17797fbc469ad1d486b92bac1cc5f5043301a6eca0dc095da8e249248e7348b321bae3ece66b45d36160b98525eaf21647dd
-  languageName: node
-  linkType: hard
-
-"reason-react@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "reason-react@npm:0.7.0"
-  dependencies:
-    react: ">=16.8.1"
-    react-dom: ">=16.8.1"
-  checksum: 03e1030666484551c45a3412207ccc42c2dd53d1b037f37068e3cb3248c9596cb61c154c51b518cf34564ebc0b2524cbd46404e8fbe0ab015cdc18d862e93a48
+"reason-react@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "reason-react@npm:0.9.1"
+  peerDependencies:
+    bs-platform: ^7.1.1
+    react: ^16.8.1
+    react-dom: ^16.8.1
+  checksum: 05c3cb74f3f85bcf6dc83f60b7b4833c21492f2ca5a601590248be649bb1965217a248e64dfd98e737fe8de25524331ce72219140abd2d84a5043038e75edc79
   languageName: node
   linkType: hard
 
@@ -1397,16 +1372,6 @@ resolve@^1.9.0:
   version: 5.1.2
   resolution: "safe-buffer@npm:5.1.2"
   checksum: 2708587c1b5e70a5e420714ceb59f30f5791c6e831d39812125a008eca63a4ac18578abd020a0776ea497ff03b4543f2b2a223a7b9073bf2d6c7af9ec6829218
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.13.6":
-  version: 0.13.6
-  resolution: "scheduler@npm:0.13.6"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: 6778b87d7ff5820c8f5a1eff7f325c5ee45218e4be4bbaa937b3ec0c2d18e6799e1008e3ebc46591a84991f4313f43d5099a79b8a545a3a9261ca372ad645516
   languageName: node
   linkType: hard
 
